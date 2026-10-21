@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>田淑芳基金會 | Care & Family Foundation</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Tailwind Styling -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        trust: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                        },
+                        warmth: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Microsoft JhengHei', 'PingFang TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(12, 74, 110, 0.88) 0%, rgba(3, 105, 161, 0.75) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-slate-50 flex flex-col min-h-screen antialiased">
+
+    <!-- 1. 頂部導覽列 (Navbar) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 bg-trust-600 rounded-2xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-gray-900 tracking-tight block">田淑芳基金會</span>
+                        <span class="text-xs text-trust-600 tracking-wider font-medium uppercase">Care & Family Foundation</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-trust-600 font-medium transition-colors">關於我們</a>
+                    <a href="#services" class="text-gray-600 hover:text-trust-600 font-medium transition-colors">服務項目</a>
+                    <a href="#process" class="text-gray-600 hover:text-trust-600 font-medium transition-colors">申請指南</a>
+                    <a href="#stories" class="text-gray-600 hover:text-trust-600 font-medium transition-colors">關懷故事</a>
+                    <a href="#apply" class="text-gray-600 hover:text-trust-600 font-medium transition-colors">線上申請</a>
+                </nav>
+
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#apply" class="inline-flex items-center space-x-2 bg-warmth-500 hover:bg-warmth-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>線上申請補助</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-xl text-gray-600 hover:text-trust-600 hover:bg-slate-100 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-trust-600 hover:bg-trust-50">關於我們</a>
+            <a href="#services" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-trust-600 hover:bg-trust-50">服務項目</a>
+            <a href="#process" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-trust-600 hover:bg-trust-50">申請指南</a>
+            <a href="#stories" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-trust-600 hover:bg-trust-50">關懷故事</a>
+            <a href="#apply" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-trust-600 hover:bg-trust-50">線上申請</a>
+            <div class="pt-2">
+                <a href="#apply" class="mobile-nav-link block w-full text-center bg-warmth-500 text-white font-semibold px-4 py-2.5 rounded-full shadow">
+                    線上申請補助
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 2. 英雄區塊 (Hero Banner) -->
+        <section class="relative bg-slate-900 text-white min-h-[580px] flex items-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1600&auto=format&fit=crop" 
+                 alt="Family Care and Support" 
+                 class="absolute inset-0 w-full h-full object-cover object-center"
+                 onerror="this.src='https://placehold.co/1600x900/0c4a6e/ffffff?text=Care+%26+Family+Foundation'">
+            
+            <div class="absolute inset-0 hero-gradient"></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+                <div class="max-w-3xl space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-xs sm:text-sm font-medium text-warmth-100">
+                        <span class="w-2.5 h-2.5 rounded-full bg-warmth-400 animate-pulse"></span>
+                        <span>同仁專屬溫暖後盾 ‧ 守護家庭每一刻</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        守護同仁，關懷全家<br/>
+                        <span class="text-warmth-400">成為您與家人最堅實的後盾</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-100 font-normal leading-relaxed max-w-2xl">
+                        我們深信「同仁是公司最寶貴的資產」。無論是孩子的教育夢想，還是面對突如其來的父母重病或急難，基金會隨時與您並肩同在。
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#apply" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-warmth-500 hover:bg-warmth-600 text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                            即刻線上申請
+                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                        </a>
+                        <a href="#services" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-base border border-white/30 backdrop-blur-md transition-all">
+                            了解服務項目
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 基金會核心統計 / 簡介 (About) -->
+        <section id="about" class="py-16 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-trust-600">1,200+</div>
+                        <div class="text-gray-600 font-medium text-sm mt-1">累計受助同仁家庭</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-warmth-500">NT$ 2,500萬</div>
+                        <div class="text-gray-600 font-medium text-sm mt-1">累積發放助學金與補助</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-trust-600">3 個工作天</div>
+                        <div class="text-gray-600 font-medium text-sm mt-1">急難救助快速審核</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="text-3xl sm:text-4xl font-extrabold text-warmth-500">100%</div>
+                        <div class="text-gray-600 font-medium text-sm mt-1">同仁隱私安全保護</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 服務項目 (Services) -->
+        <section id="services" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-trust-600 font-semibold tracking-wider text-sm uppercase">Our Programs</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">四大全方位家庭關懷服務</h2>
+                    <div class="w-16 h-1 bg-warmth-500 mx-auto mt-4 rounded-full"></div>
+                    <p class="text-gray-600 text-base sm:text-lg mt-4">
+                        專為同仁及其子女、父母打造的傾力支援機制，讓每個家庭在面對關鍵時刻都有安心依託。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-trust-100 text-trust-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">🎓 子女教育獎助學金</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                鼓勵同仁子女追求卓越學業，並針對特殊清寒困難家庭子女提供助學補助，翻轉未來。
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-trust-500 mr-2"></i>國小至大專院校適用</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-trust-500 mr-2"></i>每學期定期開放申請</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-warmth-100 text-warmth-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="siren" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">🚑 父母/同仁急難救助</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                當同仁或直系親屬（父母/子女）遭遇突發災害、重大意外或家庭變故時，即時提供緊急撫恤金。
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-warmth-500 mr-2"></i>綠色通道快速核撥</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-warmth-500 mr-2"></i>最高救助額度專案處理</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="stethoscope" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">🏥 父母醫療與照護</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                減輕高齡父母重大傷病醫療費、看護費用及長期照護輔具負擔，讓孝順無後顧之憂。
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500 mr-2"></i>醫療單據自費額補助</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-rose-500 mr-2"></i>專業看護費用給付</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">🌸 家庭關懷與諮詢</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                提供心理諮商費用補助、法律諮詢對接與長照機構評估轉介服務，關懷同仁心靈健康。
+                            </p>
+                        </div>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i>完全匿名心理諮商</li>
+                            <li class="flex items-center"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2"></i>免費法律與長照顧問</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 申請指南與流程 (Application Process) -->
+        <section id="process" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-trust-600 font-semibold tracking-wider text-sm uppercase">Easy Steps</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">簡便四步驟，安心快速申請</h2>
+                    <div class="w-16 h-1 bg-warmth-500 mx-auto mt-4 rounded-full"></div>
+                    <p class="text-gray-600 text-base sm:text-lg mt-4">
+                        我們精簡申辦流程，確保在您最需要的時候，資源能以最快速度送達。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="text-center relative">
+                        <div class="w-16 h-16 bg-trust-50 text-trust-600 border-2 border-trust-500 rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-4 shadow-sm">
+                            01
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">確認申請資格</h4>
+                        <p class="text-gray-600 text-sm">確認符合子女教育、急難或父母醫療相關條件規範。</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="text-center relative">
+                        <div class="w-16 h-16 bg-trust-50 text-trust-600 border-2 border-trust-500 rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-4 shadow-sm">
+                            02
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">準備相關文件</h4>
+                        <p class="text-gray-600 text-sm">備妥診斷書、成績單或戶籍謄本等證明文件檔案。</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="text-center relative">
+                        <div class="w-16 h-16 bg-trust-50 text-trust-600 border-2 border-trust-500 rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-4 shadow-sm">
+                            03
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">線上提交申請</h4>
+                        <p class="text-gray-600 text-sm">於本網頁填寫基本資料並上傳資料（或填寫紙本）。</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="text-center relative">
+                        <div class="w-16 h-16 bg-warmth-500 text-white rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-4 shadow-md">
+                            04
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">快速審核與撥款</h4>
+                        <p class="text-gray-600 text-sm">委員會完成專業審核，補助金將直接匯入指定帳戶。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 溫馨關懷故事 (Stories) -->
+        <section id="stories" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-trust-600 font-semibold tracking-wider text-sm uppercase">Warm Stories</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mt-2">溫暖陪伴 ‧ 同仁心聲</h2>
+                    <div class="w-16 h-1 bg-warmth-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Story 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                        <p class="text-gray-600 italic leading-relaxed mb-6">
+                            「父親突發心臟疾病住院，面臨龐大的自費醫療與看護費用，當時真的手足無措。非常感謝基金會第一時間撥付急難補助，減輕了我極大的經濟負擔，讓我可以全心照顧父親。」
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-trust-100 text-trust-600 rounded-full flex items-center justify-center font-bold">
+                                林
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">林工程師</h4>
+                                <span class="text-xs text-gray-500">研發部 ‧ 申請父母醫療與急難救助</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                        <p class="text-gray-600 italic leading-relaxed mb-6">
+                            「女兒考上大學時，基金會發放的教育獎助學金對我們家是莫大的鼓勵。這不僅僅是金額上的支持，更讓孩子感受到公司像一個溫暖的大家庭，一直為我們加油打氣。」
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-warmth-100 text-warmth-600 rounded-full flex items-center justify-center font-bold">
+                                張
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">張專員</h4>
+                                <span class="text-xs text-gray-500">資材部 ‧ 申請子女教育獎助學金</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. 互動式線上補助申請表單 (Interactive Application Form) -->
+        <section id="apply" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-br from-trust-800 to-trust-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl">
+                    <div class="text-center mb-10">
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold text-trust-100 tracking-wider uppercase">Application Form</span>
+                        <h2 class="text-3xl font-extrabold mt-3">同仁關懷補助線上申請表</h2>
+                        <p class="text-trust-100 text-sm mt-2">請填寫以下基本資訊，基金會關懷專員將於 24 小時內主動與您聯繫。</p>
+                    </div>
+
+                    <form id="application-form" onsubmit="handleFormSubmit(event)" class="bg-white rounded-2xl p-6 sm:p-8 text-gray-800 shadow-lg space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- 同仁姓名 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">同仁姓名 *</label>
+                                <input type="text" required placeholder="請輸入姓名" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm">
+                            </div>
+                            <!-- 員工編號 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">員工編號 *</label>
+                                <input type="text" required placeholder="例：EMP12345" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- 所屬部門 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">所屬部門 *</label>
+                                <input type="text" required placeholder="例：製造三廠 / 行銷部" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm">
+                            </div>
+                            <!-- 聯絡電話 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">聯絡電話 *</label>
+                                <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- 補助類別 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">申請補助類別 *</label>
+                                <select required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm text-gray-700">
+                                    <option value="">-- 請選擇補助類別 --</option>
+                                    <option>🎓 子女教育獎助學金</option>
+                                    <option>🚑 同仁/父母急難救助金</option>
+                                    <option>🏥 父母醫療與重病照護補助</option>
+                                    <option>🌸 家庭關懷與心理諮商</option>
+                                </select>
+                            </div>
+                            <!-- 受助人關係 -->
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">受助人姓名與關係 *</label>
+                                <input type="text" required placeholder="例：陳小明（長子）/ 陳大雄（父親）" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm">
+                            </div>
+                        </div>
+
+                        <!-- 簡述原因 -->
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">簡述申請原因與事由 *</label>
+                            <textarea required rows="4" placeholder="請簡要說明情況（例：父親住院手術自費醫療負擔、子女學期成績優秀申請獎學金...）" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-trust-500 focus:outline-none text-sm"></textarea>
+                        </div>
+
+                        <!-- 保密承諾 -->
+                        <div class="p-4 bg-trust-50 rounded-xl border border-trust-100 flex items-start space-x-3">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-trust-600 flex-shrink-0 mt-0.5"></i>
+                            <p class="text-xs text-trust-800 leading-relaxed">
+                                基金會承諾嚴格保護同仁個人隱私，本表單所填寫之所有內容僅供基金會關懷審核使用，絕不向外部或無關第三者公開。
+                            </p>
+                        </div>
+
+                        <!-- 送出按鈕 -->
+                        <button type="submit" class="w-full bg-warmth-500 hover:bg-warmth-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-base flex justify-center items-center space-x-2">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span>確認送出申請表單</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. 頁尾 (Footer) -->
+    <footer class="bg-slate-900 text-gray-300 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <!-- Col 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 bg-trust-600 rounded-xl flex items-center justify-center text-white">
+                            <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">同仁愛心關懷基金會</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        陪伴同仁走過人生每個重要階段，為您與子女、父母提供最及時、最溫暖的依靠。
+                    </p>
+                </div>
+
+                <!-- Col 2: Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4">關懷專線與服務資訊</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-2 text-warmth-400"></i>關懷專線：(02) 2789-1234 （分機 8888）</li>
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-warmth-400"></i>電子信箱：care-foundation@company.com</li>
+                        <li class="flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-2 text-warmth-400"></i>服務時間：週一至週五 08:30 - 17:30</li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Location -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4">基金會辦公室</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        企業總部大樓 12 樓（關懷諮詢室）<br/>
+                        同仁亦可隨時至辦公室與關懷專員面對面交流，我們提供完全獨立與私密的諮詢空間。
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+                © 2026 同仁愛心關懷基金會 Care & Family Foundation. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal Notification -->
+    <div id="success-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl transform transition-all">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <i data-lucide="check" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">申請已成功送出！</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+                親愛的同仁您好，基金會已收到您的申請表單。我們的關懷專員將會於 <span class="font-bold text-trust-600">24 小時內</span> 主動與您聯繫，陪伴您一同處理後續程序。
+            </p>
+            <div class="pt-4">
+                <button onclick="closeModal()" class="w-full bg-trust-600 text-white py-3 rounded-xl font-bold hover:bg-trust-700 transition-colors">
+                    好的，我知道了
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('success-modal').classList.remove('hidden');
+            e.target.reset();
+        }
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
